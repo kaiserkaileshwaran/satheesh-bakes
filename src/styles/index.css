@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bakery-brown: 111 78 55;
+    --color-bakery-cream: 255 248 240;
+    --color-bakery-chocolate: 62 39 35;
+    --color-bakery-gold: 212 160 23;
+  }
+
+  body {
+    @apply bg-bakery-surface text-bakery-chocolate antialiased selection:bg-bakery-gold/30 selection:text-bakery-chocolate;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F5E6D3;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #8B654B;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6F4E37;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(255, 248, 240, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(245, 230, 211, 0.7);
+  }
+
+  .glass-card-dark {
+    background: rgba(62, 39, 35, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(139, 101, 75, 0.3);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #D4A017 0%, #F4A261 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-brown {
+    background: linear-gradient(135deg, #6F4E37 0%, #3E2723 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
